@@ -1,12 +1,12 @@
 # Usage
 
-Hydrogen provides a selection of commands for running code. Press ⌘-⇧-P to open the command palette and type "hydrogen" and they will come up.
+Hydrogen provides a selection of commands for running code. Press ⌘-⇧-P (Mac) or ctrl-⇧-P to open the command palette. Start typing "hydrogen" and availible commands will come up.
 
-## "Hydrogen: Run"
+## **Hydrogen: Run**
 There are two ways to tell Hydrogen which code in your file to run.
 
 1. **Selected code:** If you have code selected when you hit Run, Hydrogen will run exactly that code.
-2. **Current block:** With no code selected, Hydrogen will try to find the complete block that's on or before the current line.
+2. **Current block:** With no code selected, Hydrogen will use the active [grammar](http://flight-manual.atom.io/using-atom/sections/grammar/) to try to find the complete block on or before the current line.
 
     - If the line you're on is already a complete expression (like `s = "abracadabra"`), Hydrogen will run just that line.
 
@@ -18,35 +18,36 @@ It's easiest to see these interactions visually:
 
 ![execute](https://cloud.githubusercontent.com/assets/13285808/20360915/a16efcba-ac03-11e6-9d5c-3489b3c3c85f.gif)
 
-**"Hydrogen: Run And Move Down"** will run the the code as described above and move the cursor to the next executable line.
+**Hydrogen: Run And Move Down** will run the the code as described above and move the cursor to the next executable line.
 
-If your code starts getting cluttered up with results, run **"Hydrogen: Clear Results"** to remove them all at once.
+If your code starts getting cluttered up with results, run **Hydrogen: Clear Results** to remove them all at once.
 
-## "Hydrogen: Run Cell"
+## **Hydrogen: Run Cell**
 A "code cell" is a block of lines to be executed at once. You can define them using inline comments. Hydrogen supports a
-multitude of ways to define cells. Pick the one you like best.
-The following is an example for `python` but it will work in any language, just replace `#` with the comment symbol for your desired language:
+multitude of ways to define cells. Pick the one you like best!
+
+The following is an example for `python`, but it will work in any language. Just replace `#` with the comment symbol for your desired language:
 
 <img width=280 src="https://cloud.githubusercontent.com/assets/13285808/17094174/e8ec17b8-524d-11e6-9140-60b43e073619.png">
 
-When you place the cursor inside a cell and hit **"Run Cell"**, Hydrogen will execute this cell. The command **"Hydrogen: Run Cell And Move Down"** will move the cursor to the next cell after execution.
+When you place the cursor inside a cell and hit **Run Cell**, Hydrogen will execute all the code in that cell. The command **Hydrogen: Run Cell And Move Down** will move the cursor to the next cell after execution.
 
-## "Hydrogen: Run All" and "Hydrogen: Run All Above"
-These commands will run all code inside the editor or all code above the cursor.
+## **Hydrogen: Run All** and **Hydrogen: Run All Above**
+These commands will run all code inside the editor or all code above the cursor, respectively.
 
 
 ## Watch Expressions
 
-After you've run some code with Hydrogen, you can use the **"Hydrogen: Toggle Watches"** command from the Command Palette to open the watch expression sidebar. Whatever code you write in watch expressions will be re-run after each time you send that kernel any other code.
+After you've run some code with Hydrogen, you can use the **Hydrogen: Toggle Watches** command from the Command Palette to open the watch expression sidebar. Whatever code you write in watch expressions will be re-run after each time you send that kernel any other code.
 
 ![watch](https://cloud.githubusercontent.com/assets/13285808/20361086/4434ab3e-ac04-11e6-8298-1fb925de4e78.gif)
 
 **IMPORTANT:** Be careful what you put in your watch expressions. If you write code that mutates state in a watch expression, that code will get run after every execute command and likely result in some _extremely confusing_ bugs.
 
 
-You can re-run the watch expressions by using the normal run shortcut (⌘-↩ by default) inside a watch expression's edit field.
+You can re-run the watch expressions by using the normal run shortcut from inside the watch expression edit field. (The default run shortcut is ⌘-↩ on Mac and  ctrl-↩ on other platforms)
 
-If you have multiple kernels running, you can switch between their watch expressions with the **"Hydrogen: Select Watch Kernel"** command (or just click on the "Kernel: <language>" text).
+If you have multiple kernels running, you can switch between their watch expressions with the **Hydrogen: Select Watch Kernel** command (or just click on the **Kernel: `<language>`** text).
 
 ## Completion
 
@@ -56,19 +57,27 @@ Receive completions from the running kernel.
 
 ## Code Introspection
 
-You can use the **"Hydrogen: Toggle Inspector"** command from the Command Palette to get metadata from the kernel about the object under the cursor.
+You can use the **Hydrogen: Toggle Inspector** command from the Command Palette to get metadata from the kernel about the object under the cursor.
 
 <img width="770" src="https://cloud.githubusercontent.com/assets/13285808/14108719/d72762bc-f5be-11e5-8188-32725e3d2726.png">
 
 ## Managing kernels
 
-Sometimes things go wrong. Maybe you've written an infinite loop, maybe the kernel has crashed, or maybe you just want to clear the kernel's namespace. Use the command palette to **interrupt** (think `Ctrl-C` in a REPL) or **restart** the kernel.
+Sometimes things go wrong. Maybe you've written an infinite loop, maybe the kernel has crashed, or maybe you just want to clear the kernel's namespace. Use kernel commands to **Interrupt**  or **Restart** the kernel.
 
-You can also access these commands by clicking on the kernel status in the status bar or via the command palette. It looks like this:
+**Kernel Commands:**
+
+- **Restart**
+- **Interupt** - (think `Ctrl-C` in a REPL)
+- **Shutdown**
+- **Switch to `<language>`** - This command will be availible if more than one kernel is available for the current [grammar](http://flight-manual.atom.io/using-atom/sections/grammar/)
+
+
+You can access all available kernel commands by clicking on the kernel status in the status bar (at the bottom of your editor), or by searching for them individually via the command palette..
+
+The kernel status in the status bar looks like this:
 
 <img src="https://cloud.githubusercontent.com/assets/13285808/16894732/e4e5b4de-4b5f-11e6-8b8e-facf17a7c6c4.png" width=300>
-
-Additionally, if you have two or more kernels for a particular language (grammar), you can select which kernel to use with the "Switch to <kernel>" option in the Kernel Commands menu.
 
 ## Multiple kernels inside one rich document
 
