@@ -37,9 +37,20 @@ We use [Jasmine](https://jasmine.github.io/2.5/introduction) for writing specs.
 
 ### Build Documentation
 
-To build the website locally run:
+To build the website locally, first install gitbook-cli:
 ```bash
 npm install gitbook-cli -g
+```
+Then, to install project dependencies:
+```bash
+gitbook install
+```
+
+Now you should be all set up! To start a local server run:
+```bash
 gitbook serve
 ```
+The default address will be `localhost:4000`, navigate there in your browser of choice to preview your branch!
+
+
 For more information take a look at https://toolchain.gitbook.com/setup.html.
