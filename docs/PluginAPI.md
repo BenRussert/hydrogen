@@ -22,6 +22,10 @@ Calls your callback when the kernel has changed.
 
 * **Function** *Callback* 
 
+### Return:
+
+* **Disposable** Atom Disposable
+
 ## getActiveKernel()
 
 Get the `HydrogenKernel` of the currently active text editor.
@@ -38,8 +42,6 @@ Get the `atom$Range` that will run if `hydrogen:run-cell` is called.
 ### Return:
 
 * **Class** `atom$Range`
-
---------
 
 <!-- End lib/plugin-api/hydrogen-provider.js -->
 
@@ -77,6 +79,10 @@ Calls your callback when the kernel has been destroyed.
 ### Params:
 
 * **Function** *Callback* 
+
+### Return:
+
+* **Disposable** Atom Disposable
 
 ## getConnectionFile()
 
